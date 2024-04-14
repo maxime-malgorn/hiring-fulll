@@ -1,0 +1,56 @@
+{
+  "name": "fizzbuzz-cli",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/fizzbuzz-cli/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/fizzbuzz-cli",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/fizzbuzz-cli/src/main.ts",
+        "tsConfig": "apps/fizzbuzz-cli/tsconfig.app.json",
+        "assets": ["apps/fizzbuzz-cli/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "fizzbuzz-cli:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "fizzbuzz-cli:build:development"
+        },
+        "production": {
+          "buildTarget": "fizzbuzz-cli:build:production"
+        }
+      }
+    }
+  }
+}
