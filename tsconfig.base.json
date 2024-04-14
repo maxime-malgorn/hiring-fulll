@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hiring-fulll/fizzbuzz": ["libs/fizzbuzz/src/index.ts"]
+      "@hiring-fulll/fizzbuzz": ["libs/fizzbuzz/src/index.ts"],
+      "@hiring-fulll/vehicle-fleet": ["libs/vehicle-fleet/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

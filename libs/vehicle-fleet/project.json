@@ -1,0 +1,17 @@
+{
+  "name": "vehicle-fleet",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/vehicle-fleet/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project vehicle-fleet --web",
+  "targets": {
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cucumber-js",
+        "cwd": "{projectRoot}"
+      }
+    }
+  }
+}
