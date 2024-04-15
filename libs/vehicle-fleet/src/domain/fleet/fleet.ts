@@ -5,10 +5,11 @@ import { Vehicle } from '../vehicle/vehicle';
  */
 export class Fleet {
   public readonly id: string;
-  public readonly vehicles: Vehicle[] = [];
+  public readonly vehicles: Vehicle[];
 
-  constructor(id: string) {
+  constructor(id: string, vehicles: Vehicle[] = []) {
     this.id = id;
+    this.vehicles = vehicles;
   }
 
   /**

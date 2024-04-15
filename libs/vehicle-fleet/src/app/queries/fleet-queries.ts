@@ -1,13 +1,13 @@
-import { FleetService } from '../services/fleet-service';
+import { FleetRepository } from '../../domain/fleet/fleet-repository';
 
 export class FleetQueries {
-  constructor(private readonly fleetService: FleetService) {}
+  constructor(private readonly repository: FleetRepository) {}
 
   public async isVehicleInFleet(
     fleetId: string,
     vehiclePlate: string
   ): Promise<boolean> {
-    const fleet = await this.fleetService.getFleetById(fleetId);
+    const fleet = await this.repository.findById(fleetId);
     if (fleet === null) {
       throw new Error('Fleet not found');
     }

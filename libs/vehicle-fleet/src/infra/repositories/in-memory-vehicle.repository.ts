@@ -8,7 +8,13 @@ export class InMemoryVehicleRepository implements VehicleRepository {
     return this.vehicles.find((f) => f.plate === plate) || null;
   }
 
-  public async save(vehicle: Vehicle): Promise<void> {
+  public async insert(vehicle: Vehicle): Promise<void> {
     this.vehicles.push(vehicle);
+  }
+
+  public async update(vehicle: Vehicle): Promise<void> {
+    this.vehicles = this.vehicles.map((v) =>
+      v.plate === vehicle.plate ? vehicle : v
+    );
   }
 }

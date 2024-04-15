@@ -8,7 +8,11 @@ export class InMemoryFleetRepository implements FleetRepository {
     return this.fleets.find((f) => f.id === id) || null;
   }
 
-  public async save(fleet: Fleet): Promise<void> {
+  public async insert(fleet: Fleet): Promise<void> {
     this.fleets.push(fleet);
+  }
+
+  public async update(fleet: Fleet): Promise<void> {
+    this.fleets = this.fleets.map((f) => (f.id === fleet.id ? fleet : f));
   }
 }

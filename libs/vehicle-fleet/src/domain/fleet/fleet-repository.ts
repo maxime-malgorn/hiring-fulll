@@ -11,8 +11,14 @@ export interface FleetRepository {
   findById(id: string): Promise<Fleet | null>;
 
   /**
-   * Saves a {@link Fleet}.
+   * Inserts a {@link Fleet}.
    * @param fleet the {@link Fleet} to save
    */
-  save(fleet: Fleet): Promise<void>;
+  insert(fleet: Fleet): Promise<void>;
+
+  /**
+   * Updates a {@link Fleet}.
+   * @param fleet the {@link Fleet} to update
+   */
+  update(fleet: Fleet): Promise<void>;
 }

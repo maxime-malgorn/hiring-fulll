@@ -11,8 +11,14 @@ export interface VehicleRepository {
   findByPlate(plate: string): Promise<Vehicle | null>;
 
   /**
-   * Saves a {@link Vehicle}.
+   * Inserts a {@link Vehicle}.
    * @param vehicle the {@link Vehicle} to save
    */
-  save(vehicle: Vehicle): Promise<void>;
+  insert(vehicle: Vehicle): Promise<void>;
+
+  /**
+   * Updates a {@link Vehicle}.
+   * @param vehicle the {@link Vehicle} to update
+   */
+  update(vehicle: Vehicle): Promise<void>;
 }

@@ -1,5 +1,6 @@
 import { Given, Then, When } from '@cucumber/cucumber';
-import { context, fleetId, vehiclePlate } from './common.steps';
+import { fleetId, vehiclePlate } from './common.steps';
+import { context } from './context.steps';
 import { equal, ok } from 'assert';
 
 const fleet2Id = 'fleet-2';
@@ -7,7 +8,7 @@ const fleet2Id = 'fleet-2';
 let registerError: Error;
 
 Given('the fleet of another user', async () =>
-  context.fleetCommands.createFleet(fleet2Id)
+  context.fleetCommands.create(fleet2Id)
 );
 
 Given(

@@ -1,31 +1,30 @@
-import { FleetService } from '../services/fleet-service';
-import { VehicleService } from '../services/vehicle-service';
 import { Fleet } from '../../domain/fleet/fleet';
+import { FleetRepository } from '../../domain/fleet/fleet-repository';
+import { VehicleRepository } from '../../domain/vehicle/vehicle-repository';
 
 export class FleetCommands {
   constructor(
-    private readonly fleetService: FleetService,
-    private readonly vehicleService: VehicleService
+    private readonly fleetRepository: FleetRepository,
+    private readonly vehicleRepository: VehicleRepository
   ) {}
 
-  public async createFleet(fleetId: string): Promise<Fleet> {
-    const fleet = new Fleet(fleetId);
-    await this.fleetService.createFleet(fleet);
-    return fleet;
+  public async create(fleetId: string): Promise<void> {
+    return this.fleetRepository.insert(new Fleet(fleetId));
   }
 
   public async registerVehicle(
     fleetId: string,
-    vehiculePlate: string
+    vehiclePlate: string
   ): Promise<void> {
-    const fleet = await this.fleetService.getFleetById(fleetId);
+    const fleet = await this.fleetRepository.findById(fleetId);
     if (fleet === null) {
       throw new Error('Fleet not found');
     }
-    const vehicle = await this.vehicleService.getVehicleByPlate(vehiculePlate);
+    const vehicle = await this.vehicleRepository.findByPlate(vehiclePlate);
     if (vehicle === null) {
       throw new Error('Vehicle not found');
     }
-    return this.fleetService.registerVehicle(fleet, vehicle);
+    fleet.addVehicle(vehicle);
+    return this.fleetRepository.update(fleet);
   }
 }

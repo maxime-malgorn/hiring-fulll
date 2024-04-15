@@ -21,15 +21,6 @@ export class Location {
     );
   }
 
-  /**
-   * Verify that the location is valid.
-   *
-   * @param latitude latitude to verify
-   * @param longitude longitude to verify
-   * @param altitude altitude to verify
-   * @throws Error an error if the location is invalid
-   * @private
-   */
   private static verify(
     latitude: number,
     longitude: number,

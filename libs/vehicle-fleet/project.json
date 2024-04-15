@@ -11,6 +11,11 @@
       "options": {
         "command": "cucumber-js",
         "cwd": "{projectRoot}"
+      },
+      "configurations": {
+        "mongo": {
+          "args": ["-p", "mongo"]
+        }
       }
     }
   }

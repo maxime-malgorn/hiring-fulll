@@ -37,13 +37,6 @@ export class Vehicle {
     this._parkLocation = location;
   }
 
-  /**
-   * Verify if the vehicle can be created.
-   *
-   * @param plate the plate to verify
-   * @throws Error an error if the plate is invalid
-   * @private
-   */
   private static verify(plate: string) {
     if (!Vehicle.PLATE_REGEX.test(plate)) {
       throw new Error('Invalid plate format');
