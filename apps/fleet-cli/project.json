@@ -48,7 +48,9 @@
           "buildTarget": "fleet-cli:build:development"
         },
         "production": {
-          "buildTarget": "fleet-cli:build:production"
+          "buildTarget": "fleet-cli:build:production",
+          "inspect": false,
+          "watch": false
         }
       }
     },

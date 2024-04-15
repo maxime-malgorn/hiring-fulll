@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "fizzbuzz-cli": "nx run fizzbuzz-cli:serve:production",
+    "fleet-cli": "nx run fleet-cli:serve:production",
     "test": "nx run-many --target=test"
   },
   "private": true,

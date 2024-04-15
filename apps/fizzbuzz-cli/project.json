@@ -48,7 +48,9 @@
           "buildTarget": "fizzbuzz-cli:build:development"
         },
         "production": {
-          "buildTarget": "fizzbuzz-cli:build:production"
+          "buildTarget": "fizzbuzz-cli:build:production",
+          "inspect": false,
+          "watch": false
         }
       }
     },
