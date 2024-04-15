@@ -2,7 +2,9 @@
   "name": "@hiring-fulll/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "test": "nx run-many --target=test"
+  },
   "private": true,
   "dependencies": {
     "commander": "^12.0.0",

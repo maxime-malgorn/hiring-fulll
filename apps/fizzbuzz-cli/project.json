@@ -51,6 +51,9 @@
           "buildTarget": "fizzbuzz-cli:build:production"
         }
       }
+    },
+    "test": {
+      "executor": "nx:noop"
     }
   }
 }
