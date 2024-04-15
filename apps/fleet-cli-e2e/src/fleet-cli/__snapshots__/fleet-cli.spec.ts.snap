@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CLI tests should create a fleet 1`] = `
+"✔ Fleet created with id fleet-1
+"
+`;
+
+exports[`CLI tests should localize a vehicle 1`] = `
+"✔ Vehicle AA-123-AA parked at 23,87 with altitude not specified
+"
+`;
+
+exports[`CLI tests should localize a vehicle 2`] = `
+"✔ Vehicle AA-123-AA parked at 23,87 with altitude 40
+"
+`;
+
+exports[`CLI tests should localize a vehicle 3`] = `
+"❌ Cannot park vehicle (Error: Vehicle not found)
+"
+`;
+
+exports[`CLI tests should localize a vehicle 4`] = `
+"❌ Cannot park vehicle (Error: Vehicle not found)
+"
+`;
+
+exports[`CLI tests should localize a vehicle 5`] = `
+"❌ Cannot park vehicle (Error: Vehicle not found)
+"
+`;
+
+exports[`CLI tests should register a vehicle 1`] = `
+"✔ Vehicle AA-123-AA created and registered to fleet fleet-1
+"
+`;
+
+exports[`CLI tests should register a vehicle 2`] = `
+"❌ Cannot register vehicle to fleet (Error: Fleet not found)
+"
+`;
+
+exports[`CLI tests should register a vehicle 3`] = `
+"❌ Cannot register vehicle to fleet (Error: Invalid plate format)
+"
+`;
+
+exports[`CLI tests should register a vehicle: Already registered 1`] = `
+"❌ Cannot register vehicle to fleet (Error: Vehicle already exists in this fleet)
+"
+`;

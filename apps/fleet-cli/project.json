@@ -1,0 +1,59 @@
+{
+  "name": "fleet-cli",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/fleet-cli/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/fleet-cli",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/fleet-cli/src/main.ts",
+        "tsConfig": "apps/fleet-cli/tsconfig.app.json",
+        "assets": ["apps/fleet-cli/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "fleet-cli:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "fleet-cli:build:development"
+        },
+        "production": {
+          "buildTarget": "fleet-cli:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "nx:noop"
+    }
+  }
+}

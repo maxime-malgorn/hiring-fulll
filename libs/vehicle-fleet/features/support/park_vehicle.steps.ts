@@ -14,16 +14,28 @@ Given('a location', () => {
 Given(
   'my vehicle has been parked into this location',
   async () =>
-    await context.vehicleCommands.parkVehicleAt(vehiclePlate, location)
+    await context.vehicleCommands.parkVehicleAt(
+      vehiclePlate,
+      location.latitude,
+      location.longitude
+    )
 );
 
 When('I park my vehicle at this location', async () => {
-  await context.vehicleCommands.parkVehicleAt(vehiclePlate, location);
+  await context.vehicleCommands.parkVehicleAt(
+    vehiclePlate,
+    location.latitude,
+    location.longitude
+  );
 });
 
 When('I try to park my vehicle at this location', async () => {
   try {
-    await context.vehicleCommands.parkVehicleAt(vehiclePlate, location);
+    await context.vehicleCommands.parkVehicleAt(
+      vehiclePlate,
+      location.latitude,
+      location.longitude
+    );
   } catch (e) {
     parkError = e as Error;
   }

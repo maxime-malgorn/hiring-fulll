@@ -9,12 +9,17 @@ export class VehicleCommands {
     return this.repository.insert(new Vehicle(plate));
   }
 
-  public async parkVehicleAt(plate: string, location: Location): Promise<void> {
+  public async parkVehicleAt(
+    plate: string,
+    latitude: number,
+    longitude: number,
+    altitude?: number
+  ): Promise<void> {
     const vehicle = await this.repository.findByPlate(plate);
     if (vehicle === null) {
       throw new Error('Vehicle not found');
     }
-    vehicle.parkLocation = location;
+    vehicle.parkLocation = new Location(latitude, longitude, altitude);
     return this.repository.update(vehicle);
   }
 }
